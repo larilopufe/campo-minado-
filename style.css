@@ -1,0 +1,195 @@
+/* Fundo Geral */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #0e2547;
+  color: #64a6f3;
+  text-align: center;
+}
+
+/* Controle de Telas */
+.tela {
+  display: none;
+  padding: 20px;
+}
+.tela.ativa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Container Centralizado com brilho */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  animation: brilho 2s infinite;
+  box-shadow: 0 0 20px #64a6f3;
+  border-radius: 20px;
+  padding: 40px;
+  background-color: #0a1b37;
+}
+
+/* Animação de brilho */
+@keyframes brilho {
+  0%   { box-shadow: 0 0 10px #64a6f3; }
+  50%  { box-shadow: 0 0 25px #64a6f3; }
+  100% { box-shadow: 0 0 10px #64a6f3; }
+}
+
+/* Título Redondo */
+.menu-titulo {
+  background-color: #21487e;
+  padding: 20px 60px;
+  border-radius: 50px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #64a6f3;
+}
+
+/* Caixa de Botões */
+.menu-box {
+  background-color: #0a1b37;
+  padding: 40px 60px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Botões do Menu */
+.botao-menu {
+  background-color: #21487e;
+  color: #64a6f3;
+  font-size: 2rem;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.botao-menu:hover {
+  opacity: 0.2;
+}
+
+.tabuleiro-container {
+  display: inline-block;
+  background-color: #021a3a;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(100, 166, 243, 0.3);
+  animation: brilho 2s infinite;
+}
+
+.tabuleiro {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.celula {
+  width: 50px;
+  height: 50px;
+  background-color: #28528D;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #062243;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,0.2), inset 2px 2px 4px rgba(255,255,255,0.1);
+}
+
+.celula.revelada {
+  background-color: #D9D9D9;
+  color: #0B335F;
+  cursor: default;
+  box-shadow: inset 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.celula.bandeira::after {
+  content: '🚩';
+  position: absolute;
+  font-size: 1rem;
+}
+
+.celula.explodida {
+  background-color: #ff4f4f !important;
+  color: white;
+  font-size: 1.4rem;
+}
+
+/* Contador de bandeiras */
+.contador {
+  font-size: 1.2rem;
+  color: #5aa2f5;
+  font-weight: bold;
+  background-color: #102a4c;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(100, 166, 243, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.emoji {
+  font-size: 1.2rem;
+}
+
+/* Estilo das telas de vitória e derrota */
+#tela-vitoria, #tela-derrota {
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+#tela-vitoria h2 {
+  font-size: 3rem;
+  color: #81C784;
+  background-color: #0a1b37;
+  padding: 20px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(129, 199, 132, 0.5);
+}
+
+#tela-derrota h2 {
+  font-size: 3rem;
+  color: #ef5350;
+  background-color: #0a1b37;
+  padding: 20px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(239, 83, 80, 0.5);
+}
+
+#tela-vitoria button,
+#tela-derrota button {
+  font-size: 1.5rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #21487e;
+  color: #64a6f3;
+  transition: opacity 0.3s;
+}
+
+#tela-vitoria button:hover,
+#tela-derrota button:hover {
+  opacity: 0.2;
+}
+
+/* Células com bomba ainda não clicadas — cor sutilmente diferente */
+.celula[data-mina="true"]:not(.revelada):not(.explodida) {
+  background-color: #264a7d; /* ligeiramente mais escuro que #28528D */
+}

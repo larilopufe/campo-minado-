@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campo Minado</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Tela de Menu -->
+  <div id="tela-menu" class="tela ativa">
+    <div class="menu-container">
+      <div class="menu-titulo">CAMPO MINADO</div>
+      <div class="menu-box">
+        <button class="botao-menu" onclick="iniciarJogo()">JOGAR</button>
+        <button class="botao-menu" onclick="sairJogo()">SAIR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tela do Jogo -->
+  <div id="tela-jogo" class="tela">
+    <h1 class="titulo">CAMPO MINADO</h1>
+    <div class="tabuleiro-container">
+      <div id="tabuleiro" class="tabuleiro"></div>
+      <div class="contador">
+        FALTAM <span id="contador-bandeiras">05</span> BANDEIRAS <span class="emoji">🚩</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Telas de Vitória e Derrota -->
+  <div id="tela-vitoria" class="tela">
+    <h2>Você venceu!</h2>
+    <button onclick="voltarMenu()">Voltar ao Menu</button>
+  </div>
+  <div id="tela-derrota" class="tela">
+    <h2>Game Over!</h2>
+    <button onclick="voltarMenu()">Voltar ao Menu</button>
+  </div>
+
+  <script src="campoMinado.js"></script>
+</body>
+</html>
